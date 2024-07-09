@@ -14,6 +14,26 @@ spec:
     spec:
       containers:
       - name: kotlin-ai-cloud-platform
-        image: your_docker_image_here
+        image: gcr.io/your-gcp-project-id/kotlin-ai-cloud-platform:latest
         ports:
         - containerPort: 8080
+        env:
+        - name: PROJECT_ID
+          value: "your-gcp-project-id"
+        - name: ZONE
+          value: "us-central1-a"
+        - name: INSTANCE_NAME
+          value: "your-instance-name"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kotlin-ai-cloud-platform
+spec:
+  type: LoadBalancer
+  selector:
+    app: kotlin-ai-cloud-platform
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
