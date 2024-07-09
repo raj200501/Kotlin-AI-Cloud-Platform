@@ -1,20 +1,58 @@
 pipeline {
     agent any
 
+    environment {
+        PROJECT_ID = 'your-gcp-project-id'
+        ZONE = 'us-central1-a'
+        INSTANCE_NAME = 'your-instance-name'
+    }
+
     stages {
         stage('Build') {
             steps {
-                sh './gradlew build'
+                script {
+                    sh './gradlew build'
+                }
             }
         }
+
         stage('Test') {
             steps {
-                sh './gradlew test'
+                script {
+                    sh './gradlew test'
+                }
             }
         }
+
         stage('Deploy') {
             steps {
-                sh './gradlew deploy'
+                script {
+                    sh './gradlew deploy'
+                }
+            }
+        }
+
+        stage('Provision GCP Resources') {
+            steps {
+                script {
+                    sh '''
+                    gcloud compute instances create $INSTANCE_NAME \
+                    --project=$PROJECT_ID \
+                    --zone=$ZONE \
+                    --machine-type=n1-standard-1 \
+                    --subnet=default \
+                    --network-tier=PREMIUM \
+                    --maintenance-policy=MIGRATE \
+                    --service-account=default \
+                    --scopes=https://www.googleapis.com/auth/cloud-platform \
+                    --tags=http-server,https-server \
+                    --image=debian-10-buster-v20200902 \
+                    --image-project=debian-cloud \
+                    --boot-disk-size=10GB \
+                    --boot-disk-type=pd-standard \
+                    --boot-disk-device-name=$INSTANCE_NAME
+                    '''
+                }
             }
         }
     }
