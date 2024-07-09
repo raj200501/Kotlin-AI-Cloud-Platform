@@ -64,21 +64,21 @@ Automate routine tasks and complex workflows with our advanced cloud automation 
 ## 📈 Why Kotlin-AI-Cloud-Platform?
 
 ### Unmatched Efficiency
-Our platform is designed to maximize efficiency and reduce operational costs. With intelligent resource allocation and automated processes, you can focus on innovation while we handle the rest.
+My platform is designed to maximize efficiency and reduce operational costs. With intelligent resource allocation and automated processes, you can focus on innovation while we handle the rest.
 
 ### Seamless Integration
 Easily integrate with existing systems and workflows. Our modular design ensures compatibility with a wide range of tools and platforms.
 
 ### Future-Proof
-Stay ahead of the curve with continuous updates and improvements. Our platform evolves with the latest advancements in AI and cloud computing.
+Stay ahead of the curve with continuous updates and improvements. My platform evolves with the latest advancements in AI and cloud computing.
 
 ## 🌍 Global Impact
 
-Kotlin-AI-Cloud-Platform is poised to transform industries across the globe. From healthcare to finance, our platform provides the tools and insights needed to drive progress and innovation.
+Kotlin-AI-Cloud-Platform is poised to transform industries across the globe. From healthcare to finance, my platform provides the tools and insights needed to drive progress and innovation.
 
 ## 🤝 Get Involved
 
-Join us on this exciting journey! We welcome contributions from developers, researchers, and enthusiasts. Use a pull request.
+Join me on this exciting journey! I welcome contributions from developers, researchers, and enthusiasts. Use a pull request.
 
 ## 📜 License
 
@@ -90,7 +90,7 @@ Have questions? Reach out to me at [rajskashikar@gmail.com](mailto:rajskashikar@
 
 # Contributing to Kotlin-AI-Cloud-Platform
 
-We welcome contributions from everyone. By participating in this project, you agree to abide by our Code of Conduct.
+I welcome contributions from everyone. By participating in this project, you agree to abide by the Code of Conduct.
 
 ## How to Contribute
 
