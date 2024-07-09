@@ -112,7 +112,7 @@ git checkout -b my-feature-branch
 git commit -m "Description of my changes"
 ```
 6. **Push to your fork**:
-   ```bash
+```bash
 git push origin my-feature-branch
 ```
 
@@ -194,7 +194,7 @@ make run
 ### User Service
 
 - **Get all users**:
-  ```bash
+```bash
 curl http://localhost:8080/users
 ```
 
@@ -214,7 +214,7 @@ curl -X DELETE http://localhost:8080/users/{id}
 ### Auth Service
 
 - **Login**:
-  ```bash
+```bash
 curl -X POST -H "Content-Type: application/json" -d '{"username": "user1", "password": "password1"}' http://localhost:8081/login
 ```
 
