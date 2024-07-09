@@ -1,0 +1,13 @@
+project:
+  id: "your-gcp-project-id"
+zone: "us-central1-a"
+instance:
+  name: "your-instance-name"
+  type: "n1-standard-1"
+  source_image: "debian-10-buster-v20200902"
+  disk_size_gb: 10
+
+database:
+  user: "user"
+  password: "password"
+  name: "kotlin_ai_cloud_platform"
