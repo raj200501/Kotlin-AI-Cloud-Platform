@@ -1,0 +1,30 @@
+# Kotlin build
+/build/
+!gradle-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Virtual Environment
+.venv/
+
+# Gradle
+.gradle/
+
+# IntelliJ
+out/
