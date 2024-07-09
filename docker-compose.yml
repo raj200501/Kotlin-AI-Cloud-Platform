@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PROJECT_ID=your-gcp-project-id
+      - ZONE=us-central1-a
+      - INSTANCE_NAME=your-instance-name
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: kotlin_ai_cloud_platform
+    ports:
+      - "5432:5432"
