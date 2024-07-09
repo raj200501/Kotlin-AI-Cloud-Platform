@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kotlin-ai-cloud-platform
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kotlin-ai-cloud-platform
+  template:
+    metadata:
+      labels:
+        app: kotlin-ai-cloud-platform
+    spec:
+      containers:
+      - name: kotlin-ai-cloud-platform
+        image: your_docker_image_here
+        ports:
+        - containerPort: 8080
