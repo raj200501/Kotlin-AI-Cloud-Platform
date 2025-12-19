@@ -246,7 +246,7 @@ curl http://localhost:8083/notifications
 curl -X POST -H "Content-Type: application/json" -d '{"message": "Hello, world!", "userId": 1}' http://localhost:8083/notifications
 ```
 
-## ✅ Verified Quickstart (Codex)
+## ✅ Verified Quickstart
 
 The following steps were validated in the container without external network access:
 
