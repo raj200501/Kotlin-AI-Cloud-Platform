@@ -245,3 +245,46 @@ curl http://localhost:8083/notifications
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"message": "Hello, world!", "userId": 1}' http://localhost:8083/notifications
 ```
+
+## ✅ Verified Quickstart (Codex)
+
+The following steps were validated in the container without external network access:
+
+1. Build the offline-friendly demo services:
+   ```bash
+   ./gradlew build --offline --console=plain
+   ```
+2. Run the lightweight HTTP services (users on 8080, auth on 8081, payments on 8082, notifications on 8083):
+   ```bash
+   ./gradlew run --offline --console=plain
+   ```
+3. Run the automated smoke check that builds the project, starts the services, and exercises the user endpoint:
+   ```bash
+   ./scripts/smoke_test.sh
+   ```
+
+## Troubleshooting
+
+- The `./gradlew` script delegates to the system Gradle installation to avoid downloading a distribution; no external network is required for the verified workflow.
+- Kotlin-based service stubs remain in the repository, but the runnable demo uses a lightweight Java HTTP server to stay self-contained. If you want to restore the original Kotlin services, re-enable the commented Kotlin tooling and dependencies in `build.gradle.kts` and ensure network access to fetch the required artifacts.
+- If ports 8080–8083 are already in use locally, stop the conflicting processes or update the ports in `src/main/java/app/StandaloneServices.java` before running.
+
+**Bootstrap note (wrapper jar no longer stored in the repo):**
+1. Run the bootstrap helper once to download `gradle-wrapper.jar` based on `gradle/wrapper/gradle-wrapper.properties`:
+   ```bash
+   scripts/bootstrap_gradle_wrapper.sh
+   ```
+2. Build and run normally (online for the first invocation, afterwards you may add `--offline` if the distribution is cached):
+   ```bash
+   ./gradlew build --console=plain
+   ./gradlew run --console=plain
+   ```
+3. The smoke test now calls the bootstrap helper automatically:
+   ```bash
+   ./scripts/smoke_test.sh
+   ```
+
+## Troubleshooting updates
+
+- If `gradle/wrapper/gradle-wrapper.jar` is missing, run `scripts/bootstrap_gradle_wrapper.sh` to fetch it (network access required once). Set `GRADLE_WRAPPER_JAR_URL` to override the download location if needed for offline mirrors.
+- Builds no longer force offline mode by default; add `--offline` after the first successful bootstrap if your Gradle distribution is cached locally.
