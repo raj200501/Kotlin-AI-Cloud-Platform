@@ -28,3 +28,4 @@ Thumbs.db
 
 # IntelliJ
 out/
+gradle/wrapper/gradle-wrapper.jar
