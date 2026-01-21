@@ -288,3 +288,52 @@ The following steps were validated in the container without external network acc
 
 - If `gradle/wrapper/gradle-wrapper.jar` is missing, run `scripts/bootstrap_gradle_wrapper.sh` to fetch it (network access required once). Set `GRADLE_WRAPPER_JAR_URL` to override the download location if needed for offline mirrors.
 - Builds no longer force offline mode by default; add `--offline` after the first successful bootstrap if your Gradle distribution is cached locally.
+
+## ⏱️ Quickstart (60 seconds)
+
+```bash
+./gradlew run
+```
+
+Services will be available locally:
+
+- User Service: http://localhost:8080/users
+- Auth Service: http://localhost:8081/login
+- Payment Service: http://localhost:8082/payments
+- Notification Service: http://localhost:8083/notifications
+- Analytics Service: http://localhost:8084/analytics/forecast
+- Cloud Planner: http://localhost:8085/cloud/allocate
+
+## 🎬 Demo
+
+```bash
+scripts/demo.sh
+```
+
+## ✅ Verification
+
+```bash
+scripts/verify.sh
+```
+
+## 🧩 Features
+
+- RESTful services for users, auth, payments, and notifications.
+- Analytics endpoints for forecasting, sentiment scoring, and keyword extraction.
+- Cloud planning endpoints for resource allocation and deployment plans.
+- Optional structured logging and metrics (disabled by default).
+
+## 🗂️ Project structure
+
+- `src/main/java/app`: core services and handlers.
+- `src/main/java/app/ai`: lightweight analytics models.
+- `src/main/java/app/cloud`: resource allocation and deployment planning.
+- `src/main/java/app/observability`: structured logging and metrics.
+- `scripts/`: verification, demo, and diagnostics scripts.
+- `docs/`: architecture, security, and demo guides.
+
+## 🧠 Design decisions
+
+- Keep the demo offline and deterministic with in-memory state.
+- Expose opt-in observability toggles via environment variables.
+- Prefer small, composable services to showcase modularity.
